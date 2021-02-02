@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import "/src/variables.scss";
+
+body{
+    font-family: "Manrope";
+    background-color: $lightGrayishBlue;
+    margin: 0px;
+    font-size: 13px;
+}

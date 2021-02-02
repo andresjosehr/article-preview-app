@@ -1,0 +1,188 @@
+@import "/src/variables.scss";
+
+.card{
+    display: grid;
+    grid-template-areas: "image content";
+    grid-template-columns: 285px 1fr;
+    
+    background-color: white;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    max-width: 733px;
+    max-height: 280px;
+    border-radius: 10px;
+
+    .article-image{
+        background-image: url(/assets/images/drawers.jpg);
+        grid-area: image;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        background-size: cover;
+    }
+    .article-preview-content{
+        padding: 35px;
+        padding-bottom: 0px;
+        grid-area: content;
+
+        h1{
+            margin-top: 0;
+            font-size: 22px;
+            color: $veryDarkrayishBlue;
+        }
+
+        p{
+            line-height: 1;
+            line-height: 1.75;
+            color: $veryDarkrayishBlue;
+        }
+
+        .autor-information{
+            display: flex;
+            img{
+                width: 40px;
+                border-radius: 50%;
+            }
+            .autor-text{
+
+                margin-left: 12px;
+                margin-top: 5px;
+            
+                h3, h4{
+                    margin: 0px;
+                    font-size: 12px;
+                }
+                h3{
+                    color: $veryDarkrayishBlue;
+                    font-weight: 700;
+                }
+
+                h4{
+                    color: $desaturatedDarkBlue;
+                    font-weight: 500;
+                }
+            }
+
+            .share-icon{
+                margin-top: 5px;
+                margin-left: auto;
+                padding: 8px 8px;
+                border-radius: 50%;
+                width: 15px;
+                height: 15px;
+                cursor: pointer;
+                .share-tooltip{
+                    position: absolute;
+                    background-color: $veryDarkrayishBlue;
+                    margin-left: -102px;
+                    margin-top: -85px;
+                    min-width: 218px;
+                    min-height: 50px;
+                    border-radius: 10px;
+                    text-align: center;
+                    .tooltip-content{
+                        padding: 16px 10px;
+                        text-align: center;
+                        width: inherit;
+                        width: height;
+                        span{
+                            color: $desaturatedDarkBlue;
+                            letter-spacing: 6px;
+                            font-size: 13px;
+                            font-weight: 700;
+                        }
+                        img{
+                            width: auto;
+                            height: auto;
+                            padding: 0;
+                            border-radius: 0;
+                            margin: 0 8px;
+                            z-index: 1;
+                            position: relative;
+                            margin-bottom: -4px;
+                        }
+                    }
+                }
+                .share-tooltip:after{
+                    content: " ";
+                    position: absolute;
+                    background-color: $veryDarkrayishBlue;
+                    height: 20px;
+                    width: 20px;
+                    margin: auto;
+                    left: 0;
+                    right: 0;
+                    top: 38px;
+                    transform: rotate(45deg);
+                }
+                img{
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+        }
+    }   
+}
+
+@media(min-width: 850px){
+    .share-icon:hover{
+        background-color: $veryDarkrayishBlue !important;
+    
+        img{
+            filter: brightness(0) invert(1) !important;
+        }
+    }
+}
+
+@media (max-width: 850px){
+    .card{
+        grid-template-areas: "image image"
+                             "content content";
+        width: 90%;
+        max-width: 328px;
+        min-height: 515px;
+        position: fixed;
+
+        .article-preview-content{
+            padding: 20px;
+            h1{
+                font-size: 16px;
+            }
+            p{
+                margin-bottom: 30px;
+                font-size: 12px;
+            }
+            .autor-information{
+                margin-bottom: -50px;
+
+                .share-icon{
+                    margin-top: 10px;
+                }
+                    .share-tooltip{
+                        border-top-left-radius: 0 !important;
+                        border-top-right-radius: 0 !important;
+                        left: 0;
+                        right: 0;
+                        margin-top: -18px !important;
+                        margin-left: 0 !important;
+                        min-height: 58px !important;
+                    }
+                    .share-tooltip:after{
+                        opacity: 0;
+                    }
+            }
+        }
+
+        .article-image{
+            min-height: 200px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }    
+            
+    }
+}
